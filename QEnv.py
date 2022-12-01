@@ -20,6 +20,11 @@ class QEnv:
     def getState(self):
         return str(self.maze.pos)
 
+    def getStateNp(self):
+        d = self.maze.maze.copy()
+        d[self.maze.pos] = 3
+        return d
+
     def getAllActions(self):
         return [LEFT, RIGHT, UP, DOWN]
 

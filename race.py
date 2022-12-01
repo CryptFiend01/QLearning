@@ -67,11 +67,11 @@ class RaceMap:
         self.win_rect = [700, 420, 800, 520]
 
     def Init(self):
-        self.blocks.append([0, 0, 600, 20])
+        self.blocks.append([0, 0, 640, 20])
         self.blocks.append([0, 100, 480, 20])
-        self.blocks.append([600, 0, 20, 400])
+        self.blocks.append([640, 0, 20, 400])
         self.blocks.append([460, 120, 20, 420])
-        self.blocks.append([600, 400, 200, 20])
+        self.blocks.append([640, 400, 200, 20])
         self.blocks.append([460, 540, 340, 20])
 
     def draw(self, screen):
