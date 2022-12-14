@@ -3,6 +3,7 @@ from maze import *
 class QEnv:
     def __init__(self):
         self.maze = MazeGame()
+        self.actions = [LEFT, RIGHT, UP, DOWN]
 
     def reset(self):
         self.maze.reset()
@@ -11,11 +12,18 @@ class QEnv:
         res = self.maze.moveIt(a)
         done = False
         s = str(self.maze.pos)
-        if res != 0:
+        if self.maze.isWin():
             done = True
             s = 'done'
         
         return s, res, done
+
+    def step(self, a):
+        res = self.maze.moveIt(self.actions[a])
+        done = self.maze.isWin()
+        s = self.getStateNp()
+        p = self.maze.pos
+        return s, res, done, p
 
     def getState(self):
         return str(self.maze.pos)
@@ -26,7 +34,7 @@ class QEnv:
         return d
 
     def getAllActions(self):
-        return [LEFT, RIGHT, UP, DOWN]
+        return self.actions
 
     def show(self):
         self.maze.show()

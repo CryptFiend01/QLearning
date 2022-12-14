@@ -28,41 +28,41 @@ class MazeGame:
     def moveIt(self, d):
         #global LEFT, RIGHT, UP, DOWN, DIR_NAME
         if self.isWin():
-            return -1
-        x = self.pos % self.width
-        y = self.pos / self.width
+            return -1000
+        x = int(self.pos % self.width)
+        y = int(self.pos / self.width)
         #print("From(%d,%d) move %s" % (x, y, DIR_NAME[d]))
         pos = self.pos
         if d == LEFT:
             if x > 0:
                 pos -= 1
             else:
-                return -1
+                return -100
         elif d == RIGHT:
             if x < self.width - 1:
                 pos += 1
             else:
-                return -1
+                return -100
         elif d == UP:
             if y > 0:
                 pos -= self.width
             else:
-                return -1
+                return -100
         elif d == DOWN:
             if y < self.height - 1:
                 pos += self.width
             else:
-                return -1
+                return -100
 
         if self.maze[pos] != 1:
             self.pos = pos
         else:
-            return -1
+            return -100
 
         #print("New pos: " + str(self.pos))
             
         if self.maze[self.pos] == 2:
-            return 1
+            return 2000
         else:
             return 0
 
