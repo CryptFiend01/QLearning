@@ -220,7 +220,7 @@ class DQLearning:
     def play(self):
         env = self.env
         env.reset()
-        self.net.load("maze1.h5")
+        self.net.load("maze.h5")
 
         # print(env.getStateNp())
         steps = 0
