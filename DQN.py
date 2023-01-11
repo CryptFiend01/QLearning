@@ -268,7 +268,7 @@ if __name__ == '__main__':
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
     env = QEnv()
     dqn = DQLearning(env)
-    # dqn.train()
-    dqn.play()
+    dqn.train()
+    # dqn.play()
     # testModel()
     
